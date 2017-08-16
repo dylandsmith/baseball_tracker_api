@@ -12,6 +12,18 @@ class PlayersController < ApplicationController
   def show
     render json: @player
   end
+  
+  def highest_scorer
+    #@players = Player.select(:f_name, :l_name, :earned_runs).order(earned_runs: :desc)
+    @players = Player.all
+    player_with_highest_score = @players[0]
+    @players.each do |player|
+      if(player_with_highest_score.earned_runs < player.earned_runs)
+        player_with_highest_score = player
+      end
+    end
+    render json: player_with_highest_score
+  end
 
   # POST /players
   def create

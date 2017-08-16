@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  visiting_team: 1
+  home_team: 1
+  visiting_score: 1
+  home_score: 1
+
+two:
+  visiting_team: 1
+  home_team: 1
+  visiting_score: 1
+  home_score: 1

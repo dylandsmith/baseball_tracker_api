@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-  before_action :set_team, only: [:show, :update, :destroy]
+  before_action :set_team, only: [:show, :update, :destroy, :roster, :roster_scoring]
 
   # GET /teams
   def index
@@ -11,6 +11,14 @@ class TeamsController < ApplicationController
   # GET /teams/1
   def show
     render json: @team
+  end
+  
+  def roster
+    render json: @team.players
+  end
+  
+  def roster_scoring
+    render json: @team.players.order(earned_runs: :desc)
   end
 
   # POST /teams
